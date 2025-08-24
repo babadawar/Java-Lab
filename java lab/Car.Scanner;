@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Car {
+    String model;
+    int year;
+    double price;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Model: ");
+        model = sc.nextLine();
+        System.out.print("Enter Year: ");
+        year = sc.nextInt();
+        System.out.print("Enter Price: ");
+        price = sc.nextDouble();
+    }
+
+    void display() {
+        System.out.println(model + " (" + year + ") Rs." + price);
+    }
+
+    boolean isAbove(double amt) {
+        return price > amt;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Car c1 = new Car();
+        c1.input();
+        System.out.print("Enter price threshold: ");
+        double p = sc.nextDouble();
+        if (c1.isAbove(p)) c1.display();
+        else System.out.println("No cars above threshold.");
+    }
+}
